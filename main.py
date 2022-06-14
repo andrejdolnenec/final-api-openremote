@@ -25,8 +25,8 @@ def respond():
         response["MESSAGE"] = f"Welcome {name} to our awesome API!"
 
     # Return the response in json format
-    #return jsonify(response)
-    return data
+    return jsonify(response)
+    #return data
 
 
 @app.route('/post/', methods=['POST'])
