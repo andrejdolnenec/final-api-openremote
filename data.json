@@ -1,0 +1,30 @@
+{
+    "Properties" : {
+        "property1" : {
+            "Price" : 123234643563456,
+            "Area" : 89,
+            "No Rooms" : 2,
+            "Street" : "?????/",
+            "Plot size" : 2,
+            "geometry": {"type": "Point", "coordinates": [4.4886016845703125, 51.90996712097988]}
+        },
+        "property2" : {
+            "Price" : 123234643563456,
+            "Area" : 89,
+            "No Rooms" : 2,
+            "Street" : "?????/",
+            "Plot size" : 2,
+            "geometry": {"type": "Point", "coordinates": [4.4886016845703125, 51.90996712097988]}
+        }
+    },
+    "CoSensors" : {
+
+    },
+    "CarChargers" : {
+        "Charger1" : {
+            "kw" : 111,
+            "geometry": {"type": "Point", "coordinates": [4.4886016845703125, 51.90996712097988]}
+        }
+        
+    }
+}

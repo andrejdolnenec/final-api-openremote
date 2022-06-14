@@ -1,0 +1,23 @@
+Asset configuration 
+
+{
+  "id": "6b3w6FNdgAWdhhF5Xzdvaz",
+  "valueFilters": [
+    {
+      "type": "jsonPath",
+      "path": "$.MESSAGE",
+      "returnFirst": true,
+      "returnLast": false
+    }
+  ],
+  "queryParameters": {
+    "name": [
+      "andrej"
+    ]
+  },
+  "pollingMillis": 5000,
+  "messageConvertBinary": false,
+  "messageConvertHex": false,
+  "type": "HTTPAgentLink"
+}
+
