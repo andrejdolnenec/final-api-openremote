@@ -7,43 +7,22 @@ data =  json.load(open('data.json'))
 
 @app.route('/get/', methods=['GET'])
 def respond():
-    # Retrieve the name from the url parameter /getmsg/?name=
-    name = request.args.get("name", None)
+
+    price = request.args.get("price", None)
+    squareMeters = request.args.get("squareMeters", None)
 
     # For debugging
-    print(f"Received: {name}")
+    print(f"Received: {price}")
+    print(f"Received: {squareMeters}")
 
     response = {}
 
     # Check if the user sent a name at all
-    if not name:
-        response["ERROR"] = "No name found. Please send a name."
-    # Check if the user entered a number
-    elif str(name).isdigit():
-        response["ERROR"] = "The name can't be numeric. Please send a string."
+    if not price:
+        response["All Properies"] = " This response will Include All the available realastate properties from the database."
     else:
-        response["MESSAGE"] = f"Welcome {name} to our awesome API!"
-
-    # Return the response in json format
+        response["Selected Properies"] = "This response includes the realastate properties acording to the request argument PRICE and SQUAREMETERES"
     return jsonify(response)
-    #return data
-
-
-@app.route('/post/', methods=['POST'])
-def post_something():
-    param = request.form.get('name')
-    print(param)
-    # You can add the test cases you made in the previous function, but in our case here you are just testing the POST functionality
-    if param:
-        return jsonify({
-            "Message": f"Welcome to our awesome API!",
-            # Add this option to distinct the POST request
-            "METHOD": "POST"
-        })
-    else:
-        return jsonify({
-            "ERROR": "No name found. Please send a name."
-        })
 
 
 @app.route('/')
