@@ -3,7 +3,18 @@ import json
 
 app = Flask(__name__)
 
-data =  json.load(open('data.json'))
+#data =  json.load(open('data.json'))
+
+#concecting to the database 
+from pymongo import MongoClient
+import pymongo
+
+client = pymongo.MongoClient("mongodb+srv://marknguyen1990:thienphuc@cluster.6f4i9.mongodb.net/?retryWrites=true&w=majority")
+db = client['Rotterdams']
+collection = db['House_Clean_Data_Complete']
+
+
+
 
 @app.route('/get/', methods=['GET'])
 def respond():
@@ -21,18 +32,22 @@ def respond():
     
 
     response = {}
+    responseJson = []
 
     # Check if the user sent a name at all
     if not priceFrom and not priceTo and not squareMetersFrom and not squareMetersTo:
         response["All Properies"] = " This response will Include All the available realastate properties from the database."
     else:
-        response["Selected Properies"] = "This response includes the realastate properties acording to the request argument PRICE and SQUAREMETERES"
+        #response["Selected Properies"] = "This response includes the realastate properties acording to the request argument PRICE and SQUAREMETERES"
         
         # the code below is not implemented becouse the concection to the database canot be established. 
-        
+        cursor = collection.find({"Listed since":"Today"})
+        for record in cursor:
+            responseJson.append(record)
 
+    return jsonify(responseJson)
 
-    return jsonify(response)
+    #return jsonify(response)
 
 
 @app.route('/')
